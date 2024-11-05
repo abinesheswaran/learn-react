@@ -1,11 +1,12 @@
-import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import ParentComponent from './components/ParentComponent';
+import RedChildrenComponent from './components/RedChildrenComponent';
+import GreenChildrenComponent from './components/GreenChildrenComponent';
+import ParentWithoutCompComposition from './components/ParentWithoutCompComposition';
 
 function App() {
-  const [count, setCount] = useState(0);
-  
   return (
     <>
       <div>
@@ -18,9 +19,15 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <ParentComponent>
+            <RedChildrenComponent />
+          </ParentComponent>
+          <ParentComponent>
+            <GreenChildrenComponent />
+          </ParentComponent>
+          <ParentWithoutCompComposition />
+        </div>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
