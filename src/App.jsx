@@ -1,12 +1,9 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import ParentComponent from './components/ParentComponent';
 
 function App() {
-  const [count, setCount] = useState(0);
-  let x = 10;
-  
   return (
     <>
       <div>
@@ -19,9 +16,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <ParentComponent />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
