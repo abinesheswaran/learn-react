@@ -17,6 +17,16 @@ function App() {
     console.log('************* something got painted on to the screen');
   });
 
+  useEffect(() => {
+    function prev() {
+      console.log('prev function');
+    }
+    return () => {
+      console.log('Cleanup function is running' + count, state);
+      prev();
+    };
+  }, [count]);
+
   return (
     <>
       <div>
