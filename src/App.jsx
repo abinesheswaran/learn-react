@@ -1,10 +1,25 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import { useReducer } from 'react';
+
+const InitialState = { count: 0 };
+function reducerFunction(state, action) {
+  console.log(action, state);
+  switch (action.type) {
+    case 'add':
+      return { ...state, count: state.count + state.steps };
+    case 'sub':
+      return { ...state, count: state.count - state.steps };
+    case 'setSteps':
+      return { ...state, steps: action.steps };
+  }
+}
 
 function App() {
   //const [count, setCount] = useState(0);
-  
+  const [state, dispatch] = useReducer(reducerFunction, InitialState);
+
   return (
     <>
       <div>
@@ -17,9 +32,14 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        {/* <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button> */}
+        <button
+          onClick={() => {
+            dispatch({ type: 'setSteps', steps: 10 });
+            dispatch({ type: 'add' });
+          }}
+        >
+          count is {state?.count ?? 0}
+        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
