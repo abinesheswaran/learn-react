@@ -30,12 +30,12 @@ const AppNavLink = () => {
               <NavLink to="page3.1">Page3.1</NavLink>
             </li>
             <li>
-              <NavLink to="/page3/page3.2/12345">Page3.2</NavLink>
+              <NavLink to="/page3/page3.2/12345?a=10&b=20">Page3.2</NavLink>
             </li>
           </ul>
         </li>
         <li>
-          <Link to="page4">Page4</Link>
+          <Link to="/page4">Page4</Link>
         </li>
         <li>
           <Link to="page434">Error page</Link>

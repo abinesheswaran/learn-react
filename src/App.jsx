@@ -3,7 +3,7 @@ import Page1 from './components/Page1';
 import Page2 from './components/Page2';
 import Page3 from './components/Page3';
 import Page4 from './components/Page4';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import Page21 from './components/Page21';
 import Page22 from './components/Page22';
@@ -40,6 +40,7 @@ function App() {
           <Route path="page3" element={<Page3 />}>
             <Route path="page3.1" element={<Page31 />} />
             <Route path="page3.2/:id" element={<Page32 />} />
+            <Route index element={<Navigate replace to="page3.1" />} />
           </Route>
           <Route path="page4" element={<Page4 />} />
           <Route
