@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Page21 from './components/Page21';
 import Page22 from './components/Page22';
 import Page31 from './components/Page31';
-import Page32 from './components/Page31';
+import Page32 from './components/Page32';
 import AppNavLink from './components/AppNavLink';
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
           </Route>
           <Route path="page3" element={<Page3 />}>
             <Route path="page3.1" element={<Page31 />} />
-            <Route path="page3.2" element={<Page32 />} />
+            <Route path="page3.2/:id" element={<Page32 />} />
           </Route>
           <Route path="page4" element={<Page4 />} />
           <Route
