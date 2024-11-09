@@ -2,11 +2,19 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import Button from './Components/Button';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
+  const obj = useMemo(
+    () => ({
+      name: 'abinesh',
+      age: 26,
+    }),
+    []
+  );
+  const arr = useMemo(() => [1, 2, 3, 4, 5, 6, 7], []);
   return (
     <>
       <div>
@@ -23,7 +31,7 @@ function App() {
         <button onClick={() => setCount2((n) => n + 1)}>
           count is {count2}
         </button>
-        <Button count={count2} />
+        <Button count={count2} val={obj} arr={arr} />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
