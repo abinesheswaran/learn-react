@@ -1,15 +1,11 @@
 import './App.css';
-import Page1 from './components/Page1';
-import Page2 from './components/Page2';
-import Page3 from './components/Page3';
-import Page4 from './components/Page4';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import Page21 from './components/Page21';
-import Page22 from './components/Page22';
-import Page31 from './components/Page31';
-import Page32 from './components/Page32';
-import AppNavLink from './components/AppNavLink';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { lazy, useState } from 'react';
+
+const Page1 = lazy(() => import('./components/Page1'));
+const Page2 = lazy(() => import('./components/Page2'));
+const Page21 = lazy(() => import('./components/Page21'));
+const Page22 = lazy(() => import('./components/Page22'));
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,34 +19,12 @@ function App() {
       </div>
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <AppNavLink />
-                Welcome to home page
-              </>
-            }
-          />
           <Route path="page1" element={<Page1 />} />
           <Route path="page2" element={<Page2 />}>
             <Route path="page2.1" element={<Page21 />} />
             <Route path="page2.2" element={<Page22 />} />
           </Route>
-          <Route path="page3" element={<Page3 />}>
-            <Route path="page3.1" element={<Page31 />} />
-            <Route path="page3.2/:id" element={<Page32 />} />
-          </Route>
-          <Route path="page4" element={<Page4 />} />
-          <Route
-            path="*"
-            element={
-              <>
-                <AppNavLink />
-                Error page
-              </>
-            }
-          />
+          <Route index element={<Navigate replace to="page1" />} />
         </Routes>
       </BrowserRouter>
     </div>

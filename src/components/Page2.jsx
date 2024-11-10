@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import AppNavLink from './AppNavLink';
 
 const Page2 = () => {
+  console.log('Page2 Loaded');
   return (
     <>
       <Outlet />

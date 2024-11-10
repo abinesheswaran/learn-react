@@ -1,4 +1,5 @@
-const Page2 = () => {
+const Page22 = () => {
+  console.log('Page2.2 Loaded');
   return (
     <div style={{ backgroundColor: 'green', width: '100px', height: '100px' }}>
       <p>Page2</p>
@@ -6,4 +7,4 @@ const Page2 = () => {
   );
 };
 
-export default Page2;
+export default Page22;
