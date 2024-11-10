@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { lazy, useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 
 const Page1 = lazy(() => import('./components/Page1'));
 const Page2 = lazy(() => import('./components/Page2'));
@@ -18,14 +18,16 @@ function App() {
         </button>
       </div>
       <BrowserRouter>
-        <Routes>
-          <Route path="page1" element={<Page1 />} />
-          <Route path="page2" element={<Page2 />}>
-            <Route path="page2.1" element={<Page21 />} />
-            <Route path="page2.2" element={<Page22 />} />
-          </Route>
-          <Route index element={<Navigate replace to="page1" />} />
-        </Routes>
+        <Suspense fallback={<>Loading...</>}>
+          <Routes>
+            <Route path="page1" element={<Page1 />} />
+            <Route path="page2" element={<Page2 />}>
+              <Route path="page2.1" element={<Page21 />} />
+              <Route path="page2.2" element={<Page22 />} />
+            </Route>
+            <Route index element={<Navigate replace to="page1" />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );
