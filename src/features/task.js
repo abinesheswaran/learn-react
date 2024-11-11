@@ -12,7 +12,16 @@ const taskReducer = (state = InitialTaskState, action) => {
 };
 
 const gymChangeAction = (gym) => {
-  return { type: 'gym', gym };
+  if (gym === 'High') return { type: 'gym', gym };
+  else {
+    return async function (dispatch) {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts'
+      );
+      console.log(await response.json());
+      dispatch({ type: 'gym', gym });
+    };
+  }
 };
 
 export { taskReducer, InitialTaskState, gymChangeAction };

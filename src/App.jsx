@@ -4,6 +4,7 @@ import './App.css';
 import store from './store';
 import { ageChangeAction, nameChangeAction } from './features/bio';
 import { useSelector } from 'react-redux';
+import { gymChangeAction } from './features/task';
 
 function App() {
   //const [count, setCount] = useState(0);
@@ -13,6 +14,7 @@ function App() {
   store.dispatch(ageChangeAction(26));
   const age = useSelector((store) => store.bio.age);
   console.log(age);
+  store.dispatch(gymChangeAction('Slow'));
   return (
     <>
       <div>
