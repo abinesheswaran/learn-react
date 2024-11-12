@@ -1,17 +1,12 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import { InitialBioState, bioReducer } from './features/bio';
-import { InitialTaskState, taskReducer } from './features/task';
-import { thunk } from 'redux-thunk';
+import bioReducer from './features/bioSlice';
+import { taskReducer } from './features/task';
+import { configureStore } from '@reduxjs/toolkit';
 
-const rootReducer = combineReducers({ bio: bioReducer, task: taskReducer });
-
-const store = createStore(
-  rootReducer,
-  {
-    bio: InitialBioState,
-    task: InitialTaskState,
+const store = configureStore({
+  reducer: {
+    bio: bioReducer,
+    task: taskReducer,
   },
-  applyMiddleware(thunk)
-);
+});
 
 export default store;

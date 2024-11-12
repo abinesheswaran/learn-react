@@ -2,19 +2,23 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import store from './store';
-import { ageChangeAction, nameChangeAction } from './features/bio';
 import { useSelector } from 'react-redux';
 import { gymChangeAction } from './features/task';
+import { ageChange, nameChange } from './features/bioSlice';
 
 function App() {
   //const [count, setCount] = useState(0);
-  console.log(store.getState());
-  store.dispatch(nameChangeAction('Abinesh E'));
-  console.log(store.getState());
-  store.dispatch(ageChangeAction(26));
+  //console.log(store.getState());
+  store.dispatch(nameChange('Abinesh E'));
+  const name = useSelector((store) => store.bio.name);
+  console.log(name);
+  //console.log(store.getState());
+  store.dispatch(ageChange(26));
   const age = useSelector((store) => store.bio.age);
   console.log(age);
-  store.dispatch(gymChangeAction('Slow'));
+  store.dispatch(gymChangeAction('High'));
+  // console.log(store.getState());
+  console.log(useSelector((store) => store.task.gym));
   return (
     <>
       <div>

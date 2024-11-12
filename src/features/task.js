@@ -5,7 +5,7 @@ const InitialTaskState = {
 const taskReducer = (state = InitialTaskState, action) => {
   switch (action.type) {
     case 'gym':
-      return { ...state, name: action.gym };
+      return { ...state, gym: action.gym };
     default:
       return state;
   }
