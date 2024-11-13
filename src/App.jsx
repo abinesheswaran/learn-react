@@ -1,10 +1,11 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import Counter from './components/Counter';
 
 function App() {
   //const [count, setCount] = useState(0);
-  
+
   return (
     <>
       <div>
@@ -20,6 +21,12 @@ function App() {
         {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button> */}
+        <Counter>
+          <Counter.Title>{`I won't do anything`}</Counter.Title>
+          <Counter.IncButton>+</Counter.IncButton>
+          <Counter.Count />
+          <Counter.DecButton>-</Counter.DecButton>
+        </Counter>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
